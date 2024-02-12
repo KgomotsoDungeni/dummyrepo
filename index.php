@@ -163,3 +163,25 @@ $countA = $row['count'];
 </body>
 
 </html>
+<?php 
+session_start();
+require_once "./../env/dbconnection.php";
+?>
+
+<?php
+
+$query = "SELECT COUNT(*) as count FROM student WHERE user_type = 'student'";
+$result = $conn->query($query); // Use the $conn object for querying
+$row = mysqli_fetch_assoc($result);
+$count = $row['count'];
+
+$query = "SELECT COUNT(*) as count FROM 12a WHERE user_type = 'teacher'";
+$result = $conn->query($query); // Use the $conn object for querying
+$row = mysqli_fetch_assoc($result);
+$counts = $row['count'];
+
+$query = "SELECT COUNT(*) as count FROM parents WHERE user_type = 'parent'";
+$result = $conn->query($query); // Use the $conn object for querying
+$row = mysqli_fetch_assoc($result);
+$countA = $row['count'];
+?>
